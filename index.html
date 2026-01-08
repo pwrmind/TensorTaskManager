@@ -169,7 +169,7 @@
                         <div class="flex justify-around bg-white rounded-xl shadow-sm p-1">
                             <button 
                                 @click="activeTab = 'recommended'"
-                                :class="activeTab === 'recommended' ? 'bg-blue-50 text-blue-600 mobile-tab active' : 'text-gray-600 mobile-tab'"
+                                :class="activeTab === 'recommended' ? 'bg-blue-50 text-blue-600 mobile-tab active ml-1 mt-2' : 'text-gray-600 mobile-tab'"
                                 class="flex-1 py-3 rounded-lg flex flex-col items-center transition"
                             >
                                 <i class="fas fa-star mb-1"></i>
@@ -177,7 +177,7 @@
                             </button>
                             <button 
                                 @click="activeTab = 'completed'"
-                                :class="activeTab === 'completed' ? 'bg-blue-50 text-blue-600 mobile-tab active' : 'text-gray-600 mobile-tab'"
+                                :class="activeTab === 'completed' ? 'bg-blue-50 text-blue-600 mobile-tab active ml-1 mt-2' : 'text-gray-600 mobile-tab'"
                                 class="flex-1 py-3 rounded-lg flex flex-col items-center transition"
                             >
                                 <i class="fas fa-check-circle mb-1"></i>
@@ -185,7 +185,7 @@
                             </button>
                             <button 
                                 @click="activeTab = 'pending'"
-                                :class="activeTab === 'pending' ? 'bg-blue-50 text-blue-600 mobile-tab active' : 'text-gray-600 mobile-tab'"
+                                :class="activeTab === 'pending' ? 'bg-blue-50 text-blue-600 mobile-tab active ml-1 mt-2' : 'text-gray-600 mobile-tab'"
                                 class="flex-1 py-3 rounded-lg flex flex-col items-center transition"
                             >
                                 <i class="fas fa-clock mb-1"></i>
@@ -728,71 +728,6 @@
                     </div>
                 </div>
             </div>
-            
-            <!-- Screen 6: About -->
-            <div x-show="currentScreen === 'about'" class="screen-transition" x-transition>
-                <div class="mb-6">
-                    <h2 class="text-2xl font-bold text-gray-800 mb-2">
-                        <i class="fas fa-info-circle mr-2 text-blue-500"></i>О системе
-                    </h2>
-                    <p class="text-gray-600">Tensor Task Manager - интеллектуальный менеджер задач</p>
-                </div>
-                
-                <div class="bg-white rounded-2xl shadow-lg p-6">
-                    <div class="space-y-6">
-                        <div class="p-4 bg-blue-50 rounded-xl">
-                            <h4 class="font-bold text-blue-800 mb-2 flex items-center">
-                                <i class="fas fa-brain mr-2"></i>Тензорный движок
-                            </h4>
-                            <p class="text-blue-700 text-sm">
-                                Система использует тензорные вычисления для анализа взаимосвязей между задачами и вашими жизненными показателями.
-                            </p>
-                        </div>
-                        
-                        <div class="p-4 bg-green-50 rounded-xl">
-                            <h4 class="font-bold text-green-800 mb-2 flex items-center">
-                                <i class="fas fa-chart-network mr-2"></i>Динамические системы
-                            </h4>
-                            <p class="text-green-700 text-sm">
-                                Задачи влияют на систему по принципу домино через матрицу связности, создавая каскадные эффекты.
-                            </p>
-                        </div>
-                        
-                        <div class="p-4 bg-purple-50 rounded-xl">
-                            <h4 class="font-bold text-purple-800 mb-2 flex items-center">
-                                <i class="fas fa-database mr-2"></i>Хранение данных
-                            </h4>
-                            <p class="text-purple-700 text-sm">
-                                Все данные хранятся локально в вашем браузере с использованием IndexedDB. Никакая информация не отправляется на сервер.
-                            </p>
-                        </div>
-                        
-                        <div class="p-4 bg-yellow-50 rounded-xl">
-                            <h4 class="font-bold text-yellow-800 mb-2 flex items-center">
-                                <i class="fas fa-mobile-alt mr-2"></i>Адаптивный интерфейс
-                            </h4>
-                            <p class="text-yellow-700 text-sm">
-                                Специально разработан для удобной работы на мобильных устройствах и сенсорных экранах.
-                            </p>
-                        </div>
-                        
-                        <div class="pt-6 border-t border-gray-200">
-                            <div class="text-center">
-                                <div class="text-gray-600 text-sm mb-4">
-                                    <p><i class="fas fa-sync-alt mr-1"></i>
-                                    <span x-text="isEngineRunning ? 'Движок активен и обновляется автоматически' : 'Движок остановлен'"></span></p>
-                                </div>
-                                
-                                <div class="text-gray-500 text-xs">
-                                    <p class="font-medium">Tensor Task Manager v1.2</p>
-                                    <p class="mt-1">На основе TensorFlow.js и Alpine.js</p>
-                                    <p class="mt-2">Всего задач: <span x-text="tasks.length"></span> | Выполнено: <span x-text="getCompletedTasks().length"></span> | Записей в истории: <span x-text="history.length"></span></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
         </div>
         
         <!-- Bottom Navigation (Mobile) -->
@@ -841,15 +776,6 @@
                 >
                     <i class="fas fa-history text-2xl sm:text-lg mb-1"></i>
                     <span class="hidden sm:block text-xs font-medium">История</span>
-                </button>
-                
-                <button 
-                    @click="currentScreen = 'about'"
-                    :class="currentScreen === 'about' ? 'text-blue-600' : 'text-gray-600'"
-                    class="flex flex-col items-center touch-target px-2 py-1"
-                >
-                    <i class="fas fa-info-circle text-2xl sm:text-lg mb-1"></i>
-                    <span class="hidden sm:block text-xs font-medium">О системе</span>
                 </button>
             </div>
         </div>
@@ -905,16 +831,6 @@
                 >
                     <i class="fas fa-history text-xl mb-1"></i>
                     <span class="text-xs font-medium">История</span>
-                </button>
-                
-                <button 
-                    @click="currentScreen = 'about'"
-                    :class="currentScreen === 'about' ? 'text-blue-600 border-l-4 border-blue-600' : 'text-gray-600'"
-                    class="flex flex-col items-center w-full py-3 hover:bg-gray-50 touch-target"
-                    title="О системе"
-                >
-                    <i class="fas fa-info-circle text-xl mb-1"></i>
-                    <span class="text-xs font-medium">О системе</span>
                 </button>
             </div>
         </div>
@@ -1078,8 +994,7 @@
                         'addTask': this.editingTask ? 'Редактирование' : 'Новая задача',
                         'state': 'Состояние системы',
                         'indicators': 'Показатели',
-                        'history': 'История',
-                        'about': 'О системе'
+                        'history': 'История'
                     };
                     return titles[this.currentScreen] || 'Tensor Task Manager';
                 },
